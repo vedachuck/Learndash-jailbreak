@@ -1,6 +1,6 @@
 # Agent conventions
 
-> **MMA build notice.** This is a self-maintained fork, not stock LearnDash. Licensing, Harbor, telemetry, TrustedLogin and the updater are deliberately disabled, and the AI layer is multi-provider. Read `SELF-HOSTED-CHANGES.md` first. Do not "fix" the licence bypass, re-enable Harbor, or restore update checks. The Harbor rules below are upstream's and do not apply here.
+> **Self-hosted build notice.** This is a self-maintained fork, not stock LearnDash. Licensing, Harbor, telemetry, TrustedLogin and the updater are deliberately disabled, and the AI layer is multi-provider. Read `SELF-HOSTED-CHANGES.md` first. Do not "fix" the licence bypass, re-enable Harbor, or restore update checks. The Harbor rules below are upstream's and do not apply here.
 
 Do not `@`-include other docs.
 

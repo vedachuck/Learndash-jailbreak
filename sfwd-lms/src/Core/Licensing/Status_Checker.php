@@ -172,7 +172,7 @@ class Status_Checker {
 	 * @return LicenseStatus|array{} The license status. If the license key is invalid or not set, an empty array is returned.
 	 */
 	public static function get_status( string $plugin_licensing_slug, ?string $license_key = null ): array {
-		// MMA build: always report the licence as active, no remote check.
+		// Self-hosted build: always report the licence as active, no remote check.
 		return [
 			'type'   => 'current',
 			'status' => 'active',
@@ -195,7 +195,7 @@ class Status_Checker {
 	 * @return array<string, string> Map of product_slug => license_key.
 	 */
 	public static function get_legacy_license_keys( ?string $license_key = null ): array {
-		// MMA build: no remote lookup of legacy keys (would call checkout.learndash.com).
+		// Self-hosted build: no remote lookup of legacy keys (would call checkout.learndash.com).
 		return [];
 
 		// phpcs:disable Squiz.PHP.NonExecutableCode.Unreachable -- Original code kept for reference.

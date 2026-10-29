@@ -567,10 +567,10 @@ class Admin {
 					LDLMS_Post_Types::GROUP  => learndash_get_post_type_slug( LDLMS_Post_Types::GROUP ),
 				],
 				'field_values' => [
-					// MMA build: the wizard skips its "OpenAI key" step when this is non-empty.
+					// Self-hosted build: the wizard skips its "OpenAI key" step when this is non-empty.
 					// Skip it too when another provider (e.g. Anthropic) is selected and set up.
 					'openai_api_key' => LearnDash_Settings_Section_AI_Integrations::get_setting( 'openai_api_key' )
-						?: ( \LearnDash\Core\Services\AI_Provider_Factory::make()->is_configured() ? 'mma-provider-configured' : '' ),
+						?: ( \LearnDash\Core\Services\AI_Provider_Factory::make()->is_configured() ? 'self-hosted-provider-configured' : '' ),
 					'banned_words'   => Settings\Page_Section::get_setting( 'banned_words' ),
 					'error_message'  => Settings\Page_Section::get_setting( 'error_message' ),
 				],

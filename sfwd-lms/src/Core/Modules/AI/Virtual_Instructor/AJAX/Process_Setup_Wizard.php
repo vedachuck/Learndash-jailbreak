@@ -142,7 +142,7 @@ class Process_Setup_Wizard extends Request_Handler {
 
 		if (
 			! empty( $this->request->openai_api_key )
-			&& 'mma-provider-configured' !== $this->request->openai_api_key // MMA build: placeholder from Admin.php, never a real key.
+			&& 'self-hosted-provider-configured' !== $this->request->openai_api_key // Self-hosted build: placeholder from Admin.php, never a real key.
 		) {
 			LearnDash_Settings_Section_AI_Integrations::set_setting( 'openai_api_key', $this->request->openai_api_key );
 		}

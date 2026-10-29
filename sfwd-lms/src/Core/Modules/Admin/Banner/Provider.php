@@ -61,7 +61,7 @@ class Provider extends ServiceProvider {
 	 * @return void
 	 */
 	private function hooks(): void {
-		// MMA build: no LearnDash/Nexcess promotional banners. The v5.0 update banner
+		// Self-hosted build: no LearnDash/Nexcess promotional banners. The v5.0 update banner
 		// also fetched project data from LearnDash's servers.
 		return;
 

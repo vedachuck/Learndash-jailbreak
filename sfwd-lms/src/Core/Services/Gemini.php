@@ -351,7 +351,7 @@ class Gemini implements AI_Provider {
 	/**
 	 * Whether an API key is set.
 	 *
-	 * MMA build: see AI_Provider::is_configured().
+	 * Self-hosted build: see AI_Provider::is_configured().
 	 *
 	 * @return bool
 	 */

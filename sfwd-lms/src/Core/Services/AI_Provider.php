@@ -127,7 +127,7 @@ interface AI_Provider {
 	 * Whether the provider has the settings it needs to make a request
 	 * (an API key, or for a self-hosted server, a base URL).
 	 *
-	 * MMA build: used by the Course Outline and Quiz Creation admin tools.
+	 * Self-hosted build: used by the Course Outline and Quiz Creation admin tools.
 	 *
 	 * @return bool
 	 */

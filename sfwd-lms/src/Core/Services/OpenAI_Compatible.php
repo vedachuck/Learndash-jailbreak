@@ -286,7 +286,7 @@ class OpenAI_Compatible implements AI_Provider {
 	 * @return string Raw response body.
 	 */
 	private function request( string $method, array $body ): string {
-		// MMA build: a plain format check, not wp_http_validate_url(), which rejects
+		// Self-hosted build: a plain format check, not wp_http_validate_url(), which rejects
 		// localhost, private-network addresses and non-standard ports (Ollama 11434,
 		// LM Studio 1234, vLLM 8000), the servers this provider exists to support.
 		$scheme = wp_parse_url( $this->api_url, PHP_URL_SCHEME );
@@ -398,7 +398,7 @@ class OpenAI_Compatible implements AI_Provider {
 	/**
 	 * Whether a base URL is set. The API key is optional for local servers.
 	 *
-	 * MMA build: see AI_Provider::is_configured().
+	 * Self-hosted build: see AI_Provider::is_configured().
 	 *
 	 * @return bool
 	 */

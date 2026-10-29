@@ -1,4 +1,4 @@
-# MMA build of LearnDash 5.2.2 (23 October 2026)
+# Self-hosted build of LearnDash 5.2.2 (23 October 2026)
 
 This build is stock LearnDash 5.2.2 with the May 2026 changes (originally made on 5.0.5, labelled 5.0.6) carried forward. It was made to pick up upstream security fixes, including CVE-2026-12843 (unauthorised course enrolment, fixed in 5.1.6.1).
 
@@ -10,7 +10,7 @@ This build is stock LearnDash 5.2.2 with the May 2026 changes (originally made o
 - Changes 1 and 2, the licence bypass: `learndash_validate_hub_license()` and `learndash_is_license_hub_valid()` in `includes/ld-license.php` return true, and `Status_Checker::get_status()` returns active. Applied by hand, because 5.2.2 rewrote these functions (new `$recheck` parameter, Harbor licensing).
 
 **New in this build:**
-- **Updates blocked, two ways.** (a) `learndash_updates_enabled()` in `includes/ld-license.php` returns false, which stops LearnDash's own updater. (b) The plugin header `Update URI` is changed from `learndash` to `learndash-mma-build`, so WordPress never matches this plugin to LearnDash's update feed or to WordPress.org. The licence bypass alone would have done the opposite: it makes the updater think the licence is valid, which switches update offers on.
+- **Updates blocked, two ways.** (a) `learndash_updates_enabled()` in `includes/ld-license.php` returns false, which stops LearnDash's own updater. (b) The plugin header `Update URI` is changed from `learndash` to `learndash-self-hosted-build`, so WordPress never matches this plugin to LearnDash's update feed or to WordPress.org. The licence bypass alone would have done the opposite: it makes the updater think the licence is valid, which switches update offers on.
 - `includes/settings/settings-sections/class-ld-settings-section-telemetry.php`: added a guard so the Telemetry settings panel shows "Telemetry is disabled" instead of throwing a fatal error. Telemetry is never initialised, so the panel would otherwise crash.
 
 **Added 23 October 2026 (code review follow-up):**
@@ -20,7 +20,7 @@ This build is stock LearnDash 5.2.2 with the May 2026 changes (originally made o
 - AI providers (`Anthropic.php`, `Gemini.php`, `OpenAI_Compatible.php`): upstream API error text is now written to the PHP error log instead of being shown to the student, who sees a generic message. An unexpected response shape (for example a Gemini candidate blocked for safety, which has no `parts`) now throws instead of silently returning an empty reply.
 - `Gemini.php`: API key is sent in the `x-goog-api-key` header instead of the `?key=` query string, so it no longer lands in server, proxy or CDN logs.
 - `Status_Checker.php`: fixed the indentation of the `get_status()` closing brace.
-- `CLAUDE.md` / `AGENTS.md`: added an MMA notice so coding agents don't "repair" the bypass. These two files are upstream dev files that LearnDash ships in the release zip; their Harbor rules do not apply to this build.
+- `CLAUDE.md` / `AGENTS.md`: added a self-hosted build notice so coding agents don't "repair" the bypass. These two files are upstream dev files that LearnDash ships in the release zip; their Harbor rules do not apply to this build.
 - Not changed, checked and found inert: `includes/class-ld-addons-updater.php` also hooks the update transients, but its repository data comes from the Hub fetch which `learndash_updates_enabled()` already gates.
 
 **Added 23 October 2026 (second review, Gemini; full write-up in `GEMINI-REVIEW.md`):**
@@ -36,7 +36,7 @@ This build is stock LearnDash 5.2.2 with the May 2026 changes (originally made o
 - `Modules/AI/Provider.php`: binds `AI_Provider` in the DI container to `AI_Provider_Factory::make()`, so these tools use whatever is chosen under AI Integrations (Anthropic, Gemini, OpenAI or self-hosted). The ChatGPT key wiring is kept.
 - `includes/views/AI/course-outline.php` and `quiz-creation.php`: the missing-key notice no longer says "OpenAI".
 - AI Integrations settings: the provider dropdown again says it covers Virtual Instructors, Course Outline and Quiz Creation.
-- Virtual Instructor setup wizard (`Virtual_Instructor/Admin.php`, `AJAX/Process_Setup_Wizard.php`): it skipped its "enter OpenAI key" step only when an OpenAI key was saved. It now also skips it when the selected provider is set up, by passing the placeholder `mma-provider-configured`, which the save handler refuses to store.
+- Virtual Instructor setup wizard (`Virtual_Instructor/Admin.php`, `AJAX/Process_Setup_Wizard.php`): it skipped its "enter OpenAI key" step only when an OpenAI key was saved. It now also skips it when the selected provider is set up, by passing the placeholder `self-hosted-provider-configured`, which the save handler refuses to store.
 - This supersedes the earlier note that Course Outline and Quiz Creation are OpenAI-only.
 
 **Added 23 October 2026 (v6): output clean-up for non-OpenAI models, found by testing with Claude on staging.**
@@ -48,9 +48,9 @@ This build is stock LearnDash 5.2.2 with the May 2026 changes (originally made o
 - `includes/licensing/src/traits/license.php`: `is_signed_on()` returns false. It called `API::verify_license()`, which POSTs the site URL, licence key, email and site stats (WordPress version, multisite) to LearnDash's `/site/auth` about once a day, from every request type including the front end. The Hub now loads only its sign-in controller, which does nothing unless someone submits its form.
 - `includes/licensing/src/boot.php`: `RemoteBanners` is no longer registered (it fetched `remote.learndash.com/wp-json/learndash/v2/banners` from admin pages).
 - `src/Core/Modules/Admin/Banner/Provider.php`: `hooks()` returns early, so the Black Friday banner, the v5.0 update banner (which called the Hub API's `get_projects()`) and the Nexcess "software packages" ad never load.
-- Left in place because they only run when an admin starts them: the translations downloader (LearnDash Settings > Translations), the Course Wizard playlist parser, and the LearnDash Stripe/PayPal connect clients (unused; MMA takes payments through PMPro).
+- Left in place because they only run when an admin starts them: the translations downloader (LearnDash Settings > Translations), the Course Wizard playlist parser, and the LearnDash Stripe/PayPal connect clients (only active if you set up LearnDash's own payment gateways).
 
-**Version:** reported as 5.2.2 (plugin header and `LEARNDASH_VERSION`), with an "MMA build" note in the plugin description. The dashboard will no longer offer LearnDash updates, so security fixes have to be watched for manually (for example on WPScan or Wordfence for "LearnDash LMS"). To move to a newer release, download it from your LearnDash account and re-apply every change in this file: the 13 locations listed at the end, plus the telemetry settings guard, `learndash_updates_enabled()`, the `Update URI` header, the Harbor bypass, the AI-provider hardening and the v5 provider routing the v6 output clean-up and the v7 Hub/banner changes above.
+**Version:** reported as 5.2.2 (plugin header and `LEARNDASH_VERSION`), with a "self-hosted build" note in the plugin description. The dashboard will no longer offer LearnDash updates, so security fixes have to be watched for manually (for example on WPScan or Wordfence for "LearnDash LMS"). To move to a newer release, download it from your LearnDash account and re-apply every change in this file: the 13 locations listed at the end, plus the telemetry settings guard, `learndash_updates_enabled()`, the `Update URI` header, the Harbor bypass, the AI-provider hardening and the v5 provider routing the v6 output clean-up and the v7 Hub/banner changes above.
 
 ---
 
@@ -61,7 +61,7 @@ This document records all changes made to the LearnDash LMS plugin (v5.0.5) to m
 **Date of modifications:** May 2026  
 **Original plugin version:** 5.0.5  
 **Modified plugin version:** 5.0.6  
-**Modified by:** Charlie Knoles (with Claude)
+**Modified by:** the repository maintainer (with Claude)
 
 ---
 
@@ -172,7 +172,7 @@ The AI Integrations settings section (`includes/settings/settings-sections/class
 
 **Where to configure:** WordPress admin → LearnDash → Advanced Settings → AI Integrations. The provider dropdown defaults to OpenAI, so existing setups are unaffected until it is changed. Only the Virtual Instructor chat feature uses the selected provider; the Course Outline and Quiz Creation tools continue to use OpenAI only.
 
-**Why:** The original hard-coded OpenAI dependency created both a cost and a vendor lock-in concern for the Veda Center's Virtual Instructors. This change makes it possible to run those instructors on Claude, Gemini, or a self-hosted model on a VPS — without modifying the plugin code again.
+**Why:** The original hard-coded OpenAI dependency created both a cost and a vendor lock-in concern for sites running Virtual Instructors. This change makes it possible to run those instructors on Claude, Gemini, or a self-hosted model on a VPS — without modifying the plugin code again.
 
 ---
 

@@ -1,16 +1,16 @@
-# Gemini Code Review — LearnDash LMS 5.2.2 (MMA v3 Build)
+# Gemini Code Review — LearnDash LMS 5.2.2 (Self-Hosted v3 Build)
 
 **Review Date:** 23 October 2026  
-**Target Build:** `learndash-lms-5.2.2-mma-v3.zip`  
+**Target Build:** `learndash-lms-5.2.2-self-hosted-v3.zip`  
 **Scope:** Self-hosted licensing/telemetry/updater neutralization (`ld-license.php`, `Status_Checker.php`, `Harbor/Provider.php`, `sfwd_lms.php`, `Support/Provider.php`) and Multi-Provider AI Architecture (`AI_Provider`, `AI_Provider_Factory`, `Anthropic`, `Gemini`, `OpenAI_Compatible`, `ChatGPT`, `Chat_Session`, `ChatGPT_Summarizer`, `class-ld-settings-section-ai-integrations.php`).
 
 ---
 
 ## Executive Summary
 
-The `mma-v3` modifications are well-architected, surgical, and thoroughly documented in `SELF-HOSTED-CHANGES.md`. Specifically:
+The `self-hosted v3` modifications are well-architected, surgical, and thoroughly documented in `SELF-HOSTED-CHANGES.md`. Specifically:
 - **Harbor Licensing Neutralization:** Stopping `LearnDash\Core\Libraries\Harbor\Provider::configure()` before `LiquidWebHarbor::init()` and returning `[]` from `Status_Checker::get_legacy_license_keys()` completely closes the third-party update/phone-home vector introduced in LearnDash 5.1.0+.
-- **Double Update Lock:** Combining `learndash_updates_enabled() => false` with `Update URI: learndash-mma-build` in `sfwd_lms.php` prevents accidental overwrites from both LearnDash's updater and WordPress Core's plugin update checks.
+- **Double Update Lock:** Combining `learndash_updates_enabled() => false` with `Update URI: learndash-self-hosted-build` in `sfwd_lms.php` prevents accidental overwrites from both LearnDash's updater and WordPress Core's plugin update checks.
 - **Telemetry & TrustedLogin:** Cleanly unhooked, and the new guard in `class-ld-settings-section-telemetry.php` prevents fatal null-container errors on the Advanced Settings page.
 
 During a line-by-line review of the modified PHP classes, **6 issues** were identified (2 high-priority functional API bugs, 3 security/hardening gaps, and 1 admin UX/performance cleanup). The drop-in replacement files accompanying this document resolve all 6 items.

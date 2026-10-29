@@ -2,8 +2,8 @@
 /**
  * Plugin Name: LearnDash LMS
  * Plugin URI: http://www.learndash.com
- * Update URI: learndash-mma-build
- * Description: LearnDash LMS Plugin - Turn your WordPress site into a learning management system.  [MMA build: licence checks and updates off, telemetry and TrustedLogin off, multi-provider AI. See SELF-HOSTED-CHANGES.md]
+ * Update URI: learndash-self-hosted-build
+ * Description: LearnDash LMS Plugin - Turn your WordPress site into a learning management system.  [Self-hosted build: licence checks and updates off, telemetry and TrustedLogin off, multi-provider AI. See SELF-HOSTED-CHANGES.md]
  * Version: 5.2.2
  * Requires PHP: 7.4
  * Requires at least: 6.7

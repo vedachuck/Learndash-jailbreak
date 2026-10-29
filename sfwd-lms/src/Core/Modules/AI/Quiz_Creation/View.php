@@ -36,7 +36,7 @@ class View {
 	 *
 	 * @since 4.8.0
 	 *
-	 * @param AI_Provider $chatgpt AI provider selected in settings (MMA build).
+	 * @param AI_Provider $chatgpt AI provider selected in settings (self-hosted build).
 	 */
 	public function __construct( AI_Provider $chatgpt ) {
 		$this->chatgpt = $chatgpt;

@@ -166,7 +166,7 @@ class Quiz_Creation {
 	 *
 	 * @since 4.8.0
 	 *
-	 * @param AI_Provider $chatgpt    AI provider selected in settings (MMA build).
+	 * @param AI_Provider $chatgpt    AI provider selected in settings (self-hosted build).
 	 * @param Parser     $parser     Quiz creation AI response parser.
 	 * @param Repository $repository Repository object.
 	 */
@@ -253,7 +253,7 @@ class Quiz_Creation {
 				);
 
 				$command         = $this->prepare_command( $request );
-				$this->chatgpt->set_messages( [] ); // MMA build: each question type starts fresh, so earlier answers don't leak in.
+				$this->chatgpt->set_messages( [] ); // Self-hosted build: each question type starts fresh, so earlier answers don't leak in.
 				$response        = $this->chatgpt->send_command(
 					$command,
 					[

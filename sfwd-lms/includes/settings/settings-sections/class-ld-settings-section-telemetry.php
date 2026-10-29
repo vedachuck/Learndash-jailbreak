@@ -64,7 +64,7 @@ if ( class_exists( 'LearnDash_Settings_Section' ) && ! class_exists( 'LearnDash_
 
 					$container = Telemetry::instance()->container();
 					if ( ! $container ) {
-						return; // MMA build: telemetry is not initialised.
+						return; // Self-hosted build: telemetry is not initialised.
 					}
 					$enabled   = Status::STATUS_ACTIVE === (int) sanitize_key( (string) wp_unslash( $_POST['telemetry_opt_in_status'] ) );
 

@@ -65,7 +65,7 @@ class Course_Outline {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @param AI_Provider $chatgpt AI provider selected in settings (MMA build).
+	 * @param AI_Provider $chatgpt AI provider selected in settings (self-hosted build).
 	 */
 	public function __construct( AI_Provider $chatgpt ) {
 		$this->chatgpt = $chatgpt;
@@ -277,7 +277,7 @@ class Course_Outline {
 
 				$command = "Create a numbered bullet list with {$lesson_count} lesson titles for a '{$course_title}' course on the topic of '{$course_idea}'.";
 
-				$this->chatgpt->set_messages( [] ); // MMA build: each outline request starts fresh.
+				$this->chatgpt->set_messages( [] ); // Self-hosted build: each outline request starts fresh.
 				$response = $this->chatgpt->send_command( $command );
 			} catch ( Exception $e ) {
 				learndash_safe_redirect(
@@ -334,7 +334,7 @@ class Course_Outline {
 		foreach ( $lines as $line ) {
 			if ( preg_match( '/^\d+\./', $line ) ) {
 				$lesson_title = trim( substr( $line, strpos( $line, '.' ) + 1 ) );
-				// MMA build: strip Markdown emphasis and wrapping quotes some models add.
+				// Self-hosted build: strip Markdown emphasis and wrapping quotes some models add.
 				$lesson_title = trim( str_replace( [ '**', '__' ], '', $lesson_title ), " \t*_\"'" );
 				if ( ! empty( $lesson_title ) ) {
 					$lesson_titles[] = $lesson_title;

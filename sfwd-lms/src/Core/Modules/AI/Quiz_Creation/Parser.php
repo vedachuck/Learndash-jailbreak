@@ -102,7 +102,7 @@ class Parser {
 	 * @return DTO\Parsed_Response
 	 */
 	private function parse_json_response( string $response, DTO\Request $request ): DTO\Parsed_Response {
-		// MMA build: Claude and Gemini often wrap JSON in a ```json code fence, and
+		// Self-hosted build: Claude and Gemini often wrap JSON in a ```json code fence, and
 		// may add a sentence before or after it. Keep only the JSON object.
 		$response = trim( $response );
 		if ( preg_match( '/```(?:json)?\s*(.*?)\s*```/is', $response, $fence ) ) {

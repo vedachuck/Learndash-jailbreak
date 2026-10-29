@@ -45,7 +45,7 @@ class Provider extends ServiceProvider {
 						->needs( '$model' )
 						->give( $options['openai_model'] ?? '' );
 
-		// MMA build: the Course Outline and Quiz Creation tools ask for an
+		// Self-hosted build: the Course Outline and Quiz Creation tools ask for an
 		// AI_Provider, which resolves to the provider chosen in AI Integrations
 		// (Anthropic, Gemini, OpenAI or a self-hosted server), not just ChatGPT.
 		$this->container->bind(

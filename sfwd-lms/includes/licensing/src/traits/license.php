@@ -172,7 +172,7 @@ trait License {
 	 * @return bool
 	 */
 	public function is_signed_on(): bool {
-		// MMA build: never contact LearnDash's licensing server (/site/auth sends the
+		// Self-hosted build: never contact LearnDash's licensing server (/site/auth sends the
 		// site URL, licence key, email and site stats). See SELF-HOSTED-CHANGES.md.
 		return false;
 

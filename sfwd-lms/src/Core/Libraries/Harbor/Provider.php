@@ -45,7 +45,7 @@ class Provider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register_actions(): void {
-		// MMA build: only hook admin_init to clear any leftover Harbor cron event.
+		// Self-hosted build: only hook admin_init to clear any leftover Harbor cron event.
 		// We do not register the lw-harbor/legacy_licenses filters or instantiate
 		// Addon_Legacy_Licenses on every page load since Harbor is disabled.
 		add_action( 'admin_init', [ $this, 'configure' ], 1 );
@@ -59,7 +59,7 @@ class Provider extends ServiceProvider {
 	 * @return void
 	 */
 	public function configure(): void {
-		// MMA build: Harbor is never initialised. It runs its own licence checks,
+		// Self-hosted build: Harbor is never initialised. It runs its own licence checks,
 		// a twice-daily catalog fetch from software.liquidweb.com, and an updater
 		// that matches plugins by file path (so the Update URI header does not
 		// stop it). The lw_harbor_* global functions are safe no-ops without init.

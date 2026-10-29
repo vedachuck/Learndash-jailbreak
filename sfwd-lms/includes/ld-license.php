@@ -106,7 +106,7 @@ function learndash_get_license_email(): string {
  * @return bool True if the license key is valid. False otherwise.
  */
 function learndash_validate_hub_license( string $email, string $license_key, bool $force_check = false ) {
-	// MMA build: licence validation bypassed, no call to LearnDash's servers.
+	// Self-hosted build: licence validation bypassed, no call to LearnDash's servers.
 	return true;
 }
 
@@ -121,7 +121,7 @@ function learndash_validate_hub_license( string $email, string $license_key, boo
  * @return bool True if the license is valid. False otherwise.
  */
 function learndash_is_license_hub_valid( bool $recheck = true ) {
-	// MMA build: always report the licence as valid.
+	// Self-hosted build: always report the licence as valid.
 	return true;
 }
 
@@ -186,8 +186,8 @@ function learndash_get_last_license_check_time() {
  * @return bool
  */
 function learndash_updates_enabled() {
-	// MMA build: updates are switched off so a LearnDash release can't overwrite
-	// the MMA changes. Re-merge new versions by hand (see SELF-HOSTED-CHANGES.md).
+	// Self-hosted build: updates are switched off so a LearnDash release can't overwrite
+	// the self-hosted changes. Re-merge new versions by hand (see SELF-HOSTED-CHANGES.md).
 	return false;
 }
 

@@ -69,7 +69,7 @@ class Boot {
 			( new Signin_Controller() );
 		}
 
-		// MMA build: remote banners (fetched from remote.learndash.com) disabled.
+		// Self-hosted build: remote banners (fetched from remote.learndash.com) disabled.
 		// ( new RemoteBanners() )->register_hooks();
 	}
 
