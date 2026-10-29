@@ -1,0 +1,342 @@
+<?php return array (
+  'root' => 
+  array (
+    'name' => 'learndash/core',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
+    'reference' => '8b9bf9ebb2b82c8628449b08fe422506ce2ecdfc',
+    'type' => 'wordpress-plugin',
+    'install_path' => __DIR__ . '/../',
+    'aliases' => 
+    array (
+    ),
+    'dev' => false,
+  ),
+  'versions' => 
+  array (
+    'lucatume/di52' => 
+    array (
+      'pretty_version' => '4.1.1',
+      'version' => '4.1.1.0',
+      'reference' => '5296d8f1430bf6f07498ae9680b15092d3685335',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../lucatume/di52',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'myclabs/php-enum' => 
+    array (
+      'pretty_version' => '1.8.5',
+      'version' => '1.8.5.0',
+      'reference' => 'e7be26966b7398204a234f8673fdad5ac6277802',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../myclabs/php-enum',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'nyholm/psr7' => 
+    array (
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
+      'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../nyholm/psr7',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'psr/container' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../psr/container',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
+      'reference' => 'bb5906edc1c324c9a05aa0873d40117941e5fa90',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../psr/http-client',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'reference' => '2b4765fddfe3b508ac62f829e852b1501d3f6e8a',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../psr/http-factory',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.1',
+      'version' => '1.1.0.0',
+      'reference' => 'cb6ce4845ce34a8ad9e68117c10ee90a29919eba',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../psr/http-message',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'razorpay/razorpay' => 
+    array (
+      'pretty_version' => '2.9.3',
+      'version' => '2.9.3.0',
+      'reference' => 'b724515d548083b9fba52e61f47c0c24136ab181',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../razorpay/razorpay',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'rmccue/requests' => 
+    array (
+      'pretty_version' => 'v2.0.20',
+      'version' => '2.0.20.0',
+      'reference' => 'c379f928584da604287bcb102ea52c0751a66584',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../rmccue/requests',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'ssnepenthe/color-utils' => 
+    array (
+      'pretty_version' => '0.4.2',
+      'version' => '0.4.2.0',
+      'reference' => 'a68562f81fd603be0c45d102b4e8064c76ddf863',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../ssnepenthe/color-utils',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/admin-notices' => 
+    array (
+      'pretty_version' => '1.2.2',
+      'version' => '1.2.2.0',
+      'reference' => '219e081167a347f80e7eca62d41eac06e5f58dc3',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/admin-notices',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/arrays' => 
+    array (
+      'pretty_version' => '1.3.2',
+      'version' => '1.3.2.0',
+      'reference' => 'e994abcdb5d76fb5fdea7f2e1549d0603c13f91e',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/arrays',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/assets' => 
+    array (
+      'pretty_version' => '1.5.3',
+      'version' => '1.5.3.0',
+      'reference' => '4b8264a7c9af2cabdee19533da8170c26e064526',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/assets',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/banners' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'reference' => '782dc5754c5a68d1ccf9b90979a0d2a800d7f3fd',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/banners',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/container-contract' => 
+    array (
+      'pretty_version' => '1.1.2',
+      'version' => '1.1.2.0',
+      'reference' => 'ea6e93c95ddf95bbefaa0b6bc529f63ebdb1a8f1',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/container-contract',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/db' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'reference' => '34d6c66adf323f4839c2199d6e1119c79fc87a4f',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/db',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/field-conditions' => 
+    array (
+      'pretty_version' => '1.1.2',
+      'version' => '1.1.2.0',
+      'reference' => '9650a5154d46adf4f25b79f3d60b9ef863402f3f',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/field-conditions',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/harbor' => 
+    array (
+      'pretty_version' => 'v2.0.2',
+      'version' => '2.0.2.0',
+      'reference' => 'bc13f0ee39c7f1460aa746dddb183dcf0462c5d3',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/harbor',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/licensing-api-client' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'reference' => '6f9e0b3e49831f49b735a9544c5fb2fea4eeedeb',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/licensing-api-client',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/licensing-api-client-wordpress' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'reference' => 'f4ece66587cd6de175ffd35d0fbc3dc06c76a1f8',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/licensing-api-client-wordpress',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/models' => 
+    array (
+      'pretty_version' => '1.2.3',
+      'version' => '1.2.3.0',
+      'reference' => '2fb454505742d0f671bcd5ea30cc2b99dab7fa4c',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/models',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/plugin-absorber' => 
+    array (
+      'pretty_version' => 'v1.0.1',
+      'version' => '1.0.1.0',
+      'reference' => 'aa5b658a107d725917d7db202570ac6e075680e7',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/plugin-absorber',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/superglobals' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'reference' => 'a43ffa491c171f46d81a26d55e096bc8eaddfb3e',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/superglobals',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/telemetry' => 
+    array (
+      'pretty_version' => '2.4.1',
+      'version' => '2.4.1.0',
+      'reference' => 'c1b3a43359475460a17589dd0442310a81f51b24',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/telemetry',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stellarwp/validation' => 
+    array (
+      'pretty_version' => '1.6.0',
+      'version' => '1.6.0.0',
+      'reference' => '69d76a08410d8eadd8add4139241325d4df35142',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stellarwp/validation',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'stripe/stripe-php' => 
+    array (
+      'pretty_version' => 'v13.18.0',
+      'version' => '13.18.0.0',
+      'reference' => '02abb043b103766f4ed920642ae56ffdc58c7467',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../stripe/stripe-php',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+    'trustedlogin/client' => 
+    array (
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
+      'reference' => 'b913058ae57b512a7766f449ab8d55952500fe72',
+      'type' => 'library',
+      'install_path' => __DIR__ . '/../trustedlogin/client',
+      'aliases' => 
+      array (
+      ),
+      'dev_requirement' => false,
+    ),
+  ),
+);

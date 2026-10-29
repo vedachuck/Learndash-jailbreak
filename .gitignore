@@ -1,0 +1,13 @@
+# macOS / Windows
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Never commit real site config or exports
+wp-config.php
+*.sql
+.env

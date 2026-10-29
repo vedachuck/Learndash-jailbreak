@@ -1,0 +1,42 @@
+schema: learndash
+
+# Project context. Shown to AI when creating artifacts. Constraints for the
+# agent — do not copy this block into the artifact.
+context: |
+  Agent conventions live in AGENTS.md. Read it before writing any change artifact.
+  Deprecation, phpstan-baseline, and TBD version rules are repo-wide: they belong
+  in AGENTS.md, not in a change. Change artifacts stay ticket-specific.
+  Git: branch types per CONTRIBUTING.md Branches — `bucket/<TICKET>/<description>`
+  for features that outlive a sprint and `base/<TICKET>/<description>` for sprint
+  tickets; `<TICKET>/<NN>-<topic>` for sub PR branches, stacked on the base ticket
+  branch. Never use Linear's generated slug. Ask the user which branch to cut
+  from; do not choose one. Never cut from or open a PR against `main`. Commits
+  start with `<TICKET>:`, or `<PARENT> <SUBTASK>:` for a subtask. Push each
+  branch as soon as work starts, with `git push -u origin HEAD`. Every PR opens
+  as a draft. The final PR targets the branch the base ticket branch was cut from
+  and is titled `<Ticket description> | <TICKET>`. See CONTRIBUTING.md Branches,
+  Commits, Pull Requests.
+
+# Per-artifact rules. Applied only when writing that artifact.
+rules:
+  proposal:
+    - Scope, motivation, and impact for this ticket only.
+    - Do not document repo-wide conventions; those are in AGENTS.md.
+  specs:
+    - Observable behavior for this ticket. No process or tooling rules.
+  design:
+    - Ticket-specific technical decisions only.
+    - If a paragraph would apply to any PR, put it in AGENTS.md instead of here.
+    - Do not restate deprecation, phpstan-baseline, changelog, or TBD-version rules.
+    - Keep it short enough to read in one sitting.
+  tasks:
+    - Start from the schema's tasks template. Its structure (trunk, OpenSpec-only
+      PR 1, code sub PRs, PR 1 re-review, archive and open the trunk PR) is fixed;
+      fill in only what is unique to this ticket.
+    - Name the source branch the user chose in task 1.1 and in the last task.
+    - Merging the source branch's latest tip into the trunk is its own task,
+      before the trunk's PR opens.
+    - Archiving is its own task. It runs on the trunk before the trunk's PR
+      opens, once the trunk contains the source branch's latest tip, and never
+      on a sub PR branch.
+    - Point at AGENTS.md for how to deprecate, how to treat the phpstan baseline, and TBD versions.
